@@ -1,3 +1,4 @@
+import os
 import math
 import json
 import enum
@@ -155,7 +156,7 @@ def rnd_points(max_x, max_y, n_points):
 
 
 def rnd_palette():
-    with open("palettes.json", "r") as f:
+    with open(os.path.join(os.path.dirname(__file__), "palettes.json"), "r") as f:
         return random.choice(json.load(f))
 
 
