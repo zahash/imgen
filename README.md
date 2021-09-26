@@ -15,9 +15,10 @@ pip install this repo.
 
 ```sh
 pip3 install git+https://github.com/zahash/imgen.git
-
+```
 (or)
 
+```sh
 pip install git+https://github.com/zahash/imgen.git
 ```
 
