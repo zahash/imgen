@@ -16,6 +16,7 @@ pip install this repo.
 ```sh
 pip3 install git+https://github.com/zahash/imgen.git
 ```
+
 (or)
 
 ```sh
@@ -34,6 +35,14 @@ Using Command-line Arguments
 
 ```sh
 python3 -m imgen -f "some/folder/asdf.png" -rh 1920 -rv 1080 -d
+```
+
+Importing the package
+
+```Python
+from imgen import generate
+img = generate(resh=1920, resv=1080, darkmode=True)
+img.save("some/folder/asdf.png", optimize=False)
 ```
 
 ## Development setup
