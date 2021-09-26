@@ -3,7 +3,6 @@ import math
 import json
 import enum
 import random
-import argparse
 from PIL import Image, ImageDraw
 
 
@@ -164,37 +163,3 @@ def luminosity(rgb):
     rgb = [val / 255 for val in rgb]
     luminosity = 0.5 * (max(rgb) + min(rgb))
     return round(luminosity, 3)
-
-
-def parse_args():
-    ap = argparse.ArgumentParser(allow_abbrev=False)
-    ap.add_argument(
-        "-f",
-        "--filepath",
-        type=str,
-        required=True,
-        help="generated image will be saved to this filepath",
-    )
-    ap.add_argument(
-        "-rh",
-        "--resh",
-        type=int,
-        required=True,
-        help="horizontal resolution",
-    )
-    ap.add_argument(
-        "-rv",
-        "--resv",
-        type=int,
-        required=True,
-        help="vertical resolution",
-    )
-    ap.add_argument("-d", "--darkmode", action="store_true")
-    return ap.parse_args()
-
-
-if __name__ == "__main__":
-    args = parse_args()
-    img = imgen(args.resh, args.resv, args.darkmode)
-    optimize = args.filepath.lower().endswith(".png")  # png has lossless compression
-    img.save(args.filepath, optimize=optimize)
