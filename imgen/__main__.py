@@ -1,5 +1,5 @@
 import argparse
-from .imgen import imgen
+from .imgen import generate
 
 ap = argparse.ArgumentParser(allow_abbrev=False)
 ap.add_argument(
@@ -26,6 +26,6 @@ ap.add_argument(
 ap.add_argument("-d", "--darkmode", action="store_true")
 args = ap.parse_args()
 
-img = imgen(args.resh, args.resv, args.darkmode)
+img = generate(args.resh, args.resv, args.darkmode)
 optimize = args.filepath.lower().endswith(".png")  # png has lossless compression
 img.save(args.filepath, optimize=optimize)
