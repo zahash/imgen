@@ -21,7 +21,7 @@ class Point:
 
 
 class Settings:
-    def __init__(self, resh, resv, darkmode, seed=None):
+    def __init__(self, resh, resv, darkmode):
         self.resh = resh
         self.resv = resv
         self.darkmode = darkmode
@@ -39,7 +39,8 @@ class Settings:
             self.back_color, self.line_color = max_luminous_color, min_luminous_color
 
 
-def generate(resh, resv, darkmode):
+def generate(resh, resv, darkmode, seed=None):
+    random.seed(seed)
     settings = Settings(resh, resv, darkmode)
     repeater_resh = math.ceil(resh / settings.h_repeat)
     repeater_resv = math.ceil(resv / settings.v_repeat)
